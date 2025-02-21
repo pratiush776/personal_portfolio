@@ -8,6 +8,7 @@ import { forwardRef, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -22,7 +23,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative snap-start">
+    <div className={cn(`relative snap-start`, className)}>
       <Nav ref={navRef} className="bg-[#E6E6E6] dark:bg-black absolute top-0" />
       <div className="h-[100vh] snap-y snap-mandatory overflow-auto">
         <About ref={aboutRef} className="snap-start snap-always" />
@@ -33,4 +34,5 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   );
 });
 
+Content.displayName = "Content";
 export default Content;

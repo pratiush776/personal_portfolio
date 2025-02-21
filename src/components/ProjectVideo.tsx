@@ -21,4 +21,5 @@ const ProjectVideo: React.FC<ProjectVideoProps> = ({ path }) => {
   );
 };
 
+ProjectVideo.displayName = "ProjectVideo";
 export default ProjectVideo;

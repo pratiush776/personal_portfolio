@@ -32,4 +32,5 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ className }, ref) => {
   );
 });
 
+About.displayName = "About";
 export default About;

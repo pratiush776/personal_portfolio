@@ -1,5 +1,5 @@
 "use client";
-import React, { forwardRef, useEffect, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { cn } from "lib/utils";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

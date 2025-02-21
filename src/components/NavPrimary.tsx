@@ -1,5 +1,5 @@
 "use client";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import downloadBtn from "/public/icons/download_icon.webp";
 import { cn } from "lib/utils";
@@ -42,4 +42,5 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
   );
 };
 
+NavPrimary.displayName = "NavPrimary";
 export default NavPrimary;

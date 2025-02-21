@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import ProjectComp from "./ProjectComp";
 import { cn } from "lib/utils";
-import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -60,4 +59,5 @@ This project began as a concept app during a hackathon, where I collaborated wit
   }
 );
 
+Projects.displayName = "Projects";
 export default Projects;

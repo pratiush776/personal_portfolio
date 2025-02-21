@@ -86,4 +86,5 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
   );
 };
 
+ProjectComp.displayName = "ProjectComp";
 export default ProjectComp;

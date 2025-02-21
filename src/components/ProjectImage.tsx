@@ -21,4 +21,5 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ path }) => {
   );
 };
 
+ProjectImage.displayName = "ProjectImage";
 export default ProjectImage;
