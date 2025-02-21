@@ -12,7 +12,7 @@ interface NavProps {
 }
 
 const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
-  const tl = gsap.timeline();
+  // const tl = gsap.timeline();
 
   const aboutRef = useRef<HTMLLIElement>(null);
   const projectRef = useRef<HTMLLIElement>(null);

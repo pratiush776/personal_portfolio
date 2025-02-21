@@ -23,7 +23,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   const skillsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={cn(`relative snap-start`, className)}>
+    <div ref={ref} className={cn(`relative snap-start`, className)}>
       <Nav ref={navRef} className="bg-[#E6E6E6] dark:bg-black absolute top-0" />
       <div className="h-[100vh] snap-y snap-mandatory overflow-auto">
         <About ref={aboutRef} className="snap-start snap-always" />
