@@ -10,7 +10,6 @@ interface ProjectAssets {
 }
 
 interface ProjectCompProps {
-  theme?: string;
   title: string;
   description: string;
   sources: ProjectAssets;
@@ -19,17 +18,15 @@ interface ProjectCompProps {
 }
 
 const ProjectComp: React.FC<ProjectCompProps> = ({
-  theme,
   title,
   description,
   sources,
   stack,
   link,
 }) => {
-  let accent = theme === "light" ? "bg-[#E6E6E6]" : "bg-black";
-
   return (
-    <div className="relative h-[80%] p-[1rem] aspect-[9/16] rounded-3xl bg-gray-500 z-0 lg:-translate-y-[5%] flex flex-col justify-evenly text-sm text-[#ebeff1]">
+    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] md:snap-center  ">
+      {/* -----------------logo---------------- */}
       <div className="absolute w-[100%] h-[20%] top-[0] flex items-center justify-center gap-[1rem] ">
         <div className="relative h-[6vh] bg-white w-fit rounded-full aspect-square">
           <Image
@@ -42,14 +39,14 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
            33vw"
           />
         </div>
-        <h1 className="text-center text-xl text-[#093257ea] font-bold tracking-wide">
+        <h1 className="text-center w-[40%] text-wrap text-xl text-[#093257ea] font-bold tracking-wide">
           {title}
         </h1>
       </div>
       {/* -------------gallery--------------- */}
       <div className="absolute top-[20%] h-[60%] overflow-y-auto flex flex-col py-[2rem]">
         {sources.video?.length || sources.img?.length ? (
-          <div className="h-[50%] flex overflow-x-auto gap-[2rem] w-[80%] mx-auto mb-[2rem]">
+          <div className="min-h-[60%] flex overflow-x-auto gap-[2rem] w-[80%] mx-auto mb-[2rem]">
             {/* Videos */}
             {sources.video?.map((vid, i) => (
               <ProjectVideo path={vid} key={i} />
@@ -65,12 +62,12 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
         )}
 
         {/* -------------description--------------- */}
-        <p className="font-light">{description}</p>
+        <p className="font-light w-[90%] text-wrap">{description}</p>
       </div>
       {/* ---------------end of middle section------------- */}
 
-      <div className="h-[20%] bottom-0 absolute flex flex-col gap-5">
-        <ul className="flex gap-2 font-light">
+      <div className="h-[20%] py-2 w-[90%] bottom-0 absolute flex flex-col gap-5 ">
+        <ul className="flex gap-2 font-light text-nowrap overflow-auto">
           {stack.map((tech, index) => (
             <li key={index}>
               {tech}
@@ -80,7 +77,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
         </ul>
         <a
           href={link}
-          className="p-2 px-4 rounded-2xl max-w-fit bg-[#a3c4dd96] cursor-pointer hover:bg-[#ffffffe0] hover:text-[#46494b96] hover:font-medium transition "
+          className="h-[30%] w-[20%] p-1 px-10 rounded-2xl bg-[#a3c4dd96] cursor-pointer hover:bg-[#ffffffe0] hover:text-[#46494b96] hover:font-medium transition flex justify-center items-center"
         >
           Demo
         </a>

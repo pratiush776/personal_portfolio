@@ -9,23 +9,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface ProjectsProps {
-  theme?: string;
   className?: string;
 }
 
 const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
-  ({ theme, className }, ref) => {
+  ({ className }, ref) => {
     return (
       <div
+        id="projects"
         ref={ref}
         className={cn(
-          `h-screen w-screen flex justify-center items-center p-10 ${
-            theme === "light" ? "bg-[#E6E6E6]" : "bg-black"
-          }`,
+          `h-screen w-screen justify-center items-center`,
           className
         )}
       >
-        <div className="h-[100%] pt-[28vh] flex gap-[6%]  w-screen overflow-auto lg:-translate-y-[5%] ">
+        <div className=" pt-[27vh] p-10 flex gap-[6%]  w-screen overflow-auto justify-evenly items-center md:snap- md:snap-mandatory">
           <ProjectComp
             title="Business Card"
             description="I created a digital business card for an actual local busniess. The was a digital business card which could be scanned as a QR Code then the customers would be directed to this webpage when all the details and links were available to them in a neat and friendly manner."
@@ -34,7 +32,7 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
             link="https://whisk-it-all-business.web.app/"
           />
           <ProjectComp
-            title="RoomMates"
+            title="Room Mates"
             description="This is an app that enables its users to manage household chores among their groups by adding each others in groups and creating tasks."
             stack={["Node", "JS", "NEDB Promises", "Express"]}
             sources={{

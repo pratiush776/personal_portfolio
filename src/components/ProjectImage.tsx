@@ -2,11 +2,10 @@ import React from "react";
 import Image from "next/image";
 
 interface ProjectImageProps {
-  theme?: string;
   path: string;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ theme, path }) => {
+const ProjectImage: React.FC<ProjectImageProps> = ({ path }) => {
   return (
     <div className="relative h-[100%] aspect-[9/16]">
       <Image

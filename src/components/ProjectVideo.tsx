@@ -1,16 +1,12 @@
 import React from "react";
 
 interface ProjectVideoProps {
-  theme?: string;
   path: string;
 }
 
-const ProjectVideo: React.FC<ProjectVideoProps> = ({ theme, path }) => {
+const ProjectVideo: React.FC<ProjectVideoProps> = ({ path }) => {
   return (
-    <div
-      className={`h-[100%] 
-         ${theme === "light" ? "bg-[#E6E6E6]" : "bg-black"}`}
-    >
+    <div className="h-[100%]">
       <div className="max-w-sm w-full rounded-md overflow-hidden shadow-lg bg-white">
         {/* The video section */}
         <div className="relative">
