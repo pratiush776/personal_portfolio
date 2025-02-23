@@ -41,23 +41,23 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
     <div
       ref={ref}
       className={cn(
-        `sticky z-10 h-[25vh] w-screen top-0 p-10
+        ` z-10 h-[25vh] w-screen top-0 
         flex justify-center items-end`,
         className
       )}
     >
       <div>
-        <ul className="inset flex gap-5">
-          <li ref={aboutRef} className="font-semibold">
+        <ul className="inset flex gap-5 items-center justify-center font-light text-sm">
+          <li ref={aboutRef} className="font-semibold text-lg">
             About
           </li>
-          <li ref={projectRef} className="font-light">
+          <li ref={projectRef} className="">
             Projects
           </li>
-          <li ref={skillsRef} className="font-light">
+          <li ref={skillsRef} className="">
             Skills
           </li>
-          <li ref={contactRef} className="font-light">
+          <li ref={contactRef} className="">
             Contact
           </li>
         </ul>

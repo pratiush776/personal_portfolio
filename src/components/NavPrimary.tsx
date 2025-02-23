@@ -37,7 +37,11 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
           checked={theme === "dark"}
         />
       </div>
-      <Image src={downloadBtn} alt="CV" className="h-7 w-7 opacity-60"></Image>
+      <Image
+        src={downloadBtn}
+        alt="CV"
+        className="h-7 w-7 opacity-60 dark:bg-[#ffff] rounded-full"
+      ></Image>
     </div>
   );
 };

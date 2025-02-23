@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import ProjectComp from "./ProjectComp";
 import { cn } from "lib/utils";
 import gsap from "gsap";
@@ -13,16 +13,43 @@ interface ProjectsProps {
 
 const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
   ({ className }, ref) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    // useGSAP(() => {
+    //   if (containerRef.current) {
+    //     gsap.fromTo(
+    //       containerRef.current.children,
+    //       {
+    //         scrollTrigger: {
+    //           trigger: containerRef.current,
+    //           start: "top center",
+    //           end: "bottom top",
+    //           scrub: true,
+    //           toggleActions: "play reverse play reverse",
+    //         },
+    //         opacity: 0,
+    //         y: -1,
+    //         // stagger: 0.5,
+    //       },
+    //       {
+    //         opacity: 1,
+    //         y: 0,
+    //       }
+    //     );
+    //   }
+    // });
     return (
       <div
         id="projects"
         ref={ref}
         className={cn(
-          `h-screen w-screen justify-center items-center`,
+          `h-screen w-screen justify-center items-center pt-[25vh]`,
           className
         )}
       >
-        <div className=" pt-[27vh] p-10 flex gap-[6%]  w-screen overflow-auto justify-evenly items-center md:snap- md:snap-mandatory">
+        <div
+          ref={containerRef}
+          className="h-[100%] p-10 flex gap-[6%]  w-screen overflow-auto justify-evenly items-center md:snap-x md:snap-mandatory"
+        >
           <ProjectComp
             title="Business Card"
             description="I created a digital business card for an actual local busniess. The was a digital business card which could be scanned as a QR Code then the customers would be directed to this webpage when all the details and links were available to them in a neat and friendly manner."

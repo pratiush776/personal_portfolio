@@ -24,9 +24,12 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
 
   return (
     <div ref={ref} className={cn(`relative snap-start`, className)}>
-      <Nav ref={navRef} className="bg-[#E6E6E6] dark:bg-black absolute top-0" />
-      <div className="h-[100vh] snap-y snap-mandatory overflow-auto">
-        <About ref={aboutRef} className="snap-start snap-always" />
+      <div className="h-[300vh] snap-y snap-mandatory flex flex-col justify-center items-center">
+        <Nav
+          ref={navRef}
+          className="bg-[#e7b79a] dark:bg-[#272525] sticky top-0"
+        />
+        <About ref={aboutRef} className="h-[75vh] snap-bottom snap-always " />
         <Projects ref={projectsRef} className="snap-center snap-always" />
         <Skills ref={skillsRef} className="snap-center snap-always" />
       </div>

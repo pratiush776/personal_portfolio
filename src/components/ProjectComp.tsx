@@ -25,7 +25,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
   link,
 }) => {
   return (
-    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] md:snap-center  ">
+    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] sm:snap-center sm:snap-always">
       {/* -----------------logo---------------- */}
       <div className="absolute w-[100%] h-[20%] top-[0] flex items-center justify-center gap-[1rem] ">
         <div className="relative h-[6vh] bg-white w-fit rounded-full aspect-square">
