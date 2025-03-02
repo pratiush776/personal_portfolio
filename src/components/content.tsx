@@ -25,7 +25,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
 
   useGSAP(() => {
     if (navRef.current) {
-      let sections = sectionContainerRef.current
+      const sections = sectionContainerRef.current
         ? gsap.utils.toArray(sectionContainerRef.current.children)
         : [];
 
@@ -43,7 +43,9 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
           ease: "power4.out", // the ease of the snap animation ("power3" by default)
         },
       });
-      let navItems = gsap.utils.toArray(navRef.current.querySelectorAll("li"));
+      const navItems = gsap.utils.toArray(
+        navRef.current.querySelectorAll("li")
+      );
 
       gsap.from(navItems, {
         autoAlpha: 0,
@@ -60,7 +62,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
         ease: "power.out",
       });
 
-      let tl = gsap.timeline({
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: navRef.current,
           start: "top bottom",

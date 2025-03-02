@@ -13,7 +13,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const scrollRef = useRef<HTMLHeadingElement>(null);
-  let tl = gsap.timeline();
+  const tl = gsap.timeline();
   useGSAP(() => {
     const items = gsap.utils.toArray(
       document.querySelectorAll(".text")
