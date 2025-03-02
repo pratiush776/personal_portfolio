@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import ProjectVideo from "./ProjectVideo";
 import ProjectImage from "./ProjectImage";
+import { LinkPreview } from "./ui/link-preview";
 
 interface ProjectAssets {
   logo: string;
@@ -25,7 +26,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
   link,
 }) => {
   return (
-    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] sm:snap-center sm:snap-always">
+    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] md:snap-center md:snap-always">
       {/* -----------------logo---------------- */}
       <div className="absolute w-[100%] h-[20%] top-[0] flex items-center justify-center gap-[1rem] ">
         <div className="relative h-[6vh] bg-white w-fit rounded-full aspect-square">
@@ -75,12 +76,12 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
             </li>
           ))}
         </ul>
-        <a
-          href={link}
+        <LinkPreview
+          url={link}
           className="h-[30%] w-[20%] p-1 px-10 rounded-2xl bg-[#a3c4dd96] cursor-pointer hover:bg-[#ffffffe0] hover:text-[#46494b96] hover:font-medium transition flex justify-center items-center"
         >
           Demo
-        </a>
+        </LinkPreview>
       </div>
     </div>
   );

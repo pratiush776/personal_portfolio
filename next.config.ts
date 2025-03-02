@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: [
+      "api.microlink.io", // Microlink Image Preview
+      "roommatesapp-production.up.railway.app", // Your additional domain
+    ],
+  },
 };
 
-module.exports = {
-  images: {
-    domains: ['https://roommatesapp-production.up.railway.app/'],
-  },
-}
 export default nextConfig;

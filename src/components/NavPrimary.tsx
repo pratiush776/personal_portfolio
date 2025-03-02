@@ -30,8 +30,8 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
     >
       <div className="h-auto w-auto bg-transparent cursor-pointer">
         <Switch
-          className=" bg-slate-500"
-          onClick={() => {
+          className="bg-black"
+          onCheckedChange={() => {
             setTheme(theme === "light" ? "dark" : "light");
           }}
           checked={theme === "dark"}

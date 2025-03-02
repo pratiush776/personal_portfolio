@@ -1,69 +1,117 @@
 "use client";
 import React, { forwardRef, useRef } from "react";
 import { cn } from "lib/utils";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface NavProps {
   className?: string;
 }
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
-  // const tl = gsap.timeline();
+  const navContainerRef = useRef<HTMLUListElement>(null);
+  const indicatorRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    if (navContainerRef.current && indicatorRef.current) {
+      // Get all nav item elements.
+      const navItems = Array.from(
+        navContainerRef.current.children
+      ) as HTMLElement[];
 
-  const aboutRef = useRef<HTMLLIElement>(null);
-  const projectRef = useRef<HTMLLIElement>(null);
-  const skillsRef = useRef<HTMLLIElement>(null);
-  const contactRef = useRef<HTMLLIElement>(null);
-  const circleRef = useRef<HTMLDivElement>(null);
+      // Compute each nav item's center (relative to the container)
+      const containerRect = navContainerRef.current.getBoundingClientRect();
+      const positions = navItems.map((item) => {
+        const rect = item.getBoundingClientRect();
+        return rect.left - containerRect.left + rect.width / 2;
+      });
 
-  // useEffect(() => {
-  //   if (circleRef.current) {
-  //     tl.to(circleRef.current, {
-  //       scrollTrigger: {
-  //         trigger: "#projects", // Ensure an element with id="projects" exists.
-  //         start: "top top",
-  //         end: "bottom center",
-  //         scrub: true,
-  //         toggleActions: "play reverse play reverse",
-  //       },
-  //       scale: 2,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //     });
-  //   }
-  // }, []);
+      // Set the indicator's initial position (centered under the first nav item)
+      gsap.set(indicatorRef.current, {
+        x: positions[0],
+      });
 
+      // Create a timeline that moves the indicator to each nav item's center.
+      // The total scroll distance is computed as a multiple of the viewport height
+      // (adjust this multiplier as needed to match your scroll snap/section setup).
+      const totalScroll = window.innerHeight * (positions.length - 1);
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: navContainerRef.current,
+          start: "top top",
+          end: `+=${totalScroll}`,
+          scrub: true,
+          // markers: true, // Remove markers when debugging is done.
+        },
+      });
+
+      tl.to(indicatorRef.current, {
+        x: positions[0] - indicatorRef.current.offsetWidth / 2,
+        duration: 0.001,
+        ease: "none",
+        onUpdate: () => {
+          navItems.forEach((item, idx) => {
+            if (idx === 0) {
+              item.classList.add("font-semibold");
+              item.classList.remove("font-light");
+              gsap.to(item, { scale: 1, duration: 0.5, overwrite: "auto" });
+            } else {
+              item.classList.add("font-light");
+              item.classList.remove("font-semibold");
+              gsap.to(item, { scale: 0.9, duration: 0.5, overwrite: "auto" });
+            }
+          });
+        },
+      });
+
+      // For each subsequent nav item, add a tween to move the indicator.
+      for (let i = 1; i < positions.length; i++) {
+        tl.to(indicatorRef.current, {
+          x: positions[i],
+          duration: 1, // duration here is relative to scroll progress
+          ease: "power2.out",
+          onUpdate: () => {
+            navItems.forEach((item, idx) => {
+              if (idx === i) {
+                item.classList.add("font-semibold");
+                item.classList.remove("font-light");
+                gsap.to(item, { scale: 1, duration: 0.5, overwrite: "auto" });
+              } else {
+                item.classList.add("font-light");
+                item.classList.remove("font-semibold");
+                gsap.to(item, { scale: 0.9, duration: 0.5, overwrite: "auto" });
+              }
+            });
+          },
+        });
+      }
+    }
+  });
   return (
     <div
       ref={ref}
       className={cn(
-        ` z-10 h-[25vh] w-screen top-0 
-        flex justify-center items-end`,
+        "z-10 h-[25vh] w-screen flex justify-center items-end p-10",
         className
       )}
     >
-      <div>
-        <ul className="inset flex gap-5 items-center justify-center font-light text-sm">
-          <li ref={aboutRef} className="font-semibold text-lg">
-            About
-          </li>
-          <li ref={projectRef} className="">
-            Projects
-          </li>
-          <li ref={skillsRef} className="">
-            Skills
-          </li>
-          <li ref={contactRef} className="">
-            Contact
-          </li>
+      <div className="relative flex flex-col">
+        {/* Grid layout for nav items */}
+        <ul
+          ref={navContainerRef}
+          className="grid grid-cols-4 gap-5 place-items-center relative "
+        >
+          <li className="font-semibold text-base">About</li>
+          <li className="font-light">Projects</li>
+          <li className="font-light">Skills</li>
+          <li className="font-light">Contact</li>
         </ul>
+        {/* Indicator circle, absolutely positioned relative to the ul */}
         <div
-          ref={circleRef}
-          className="h-2 w-2 rounded-full bg-grey dark:bg-white m-5"
+          ref={indicatorRef}
+          className="mt-5 h-2 w-2 rounded-full bg-[#484747] dark:bg-white"
         ></div>
       </div>
     </div>

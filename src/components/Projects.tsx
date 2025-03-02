@@ -14,29 +14,25 @@ interface ProjectsProps {
 const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
   ({ className }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
-    // useGSAP(() => {
-    //   if (containerRef.current) {
-    //     gsap.fromTo(
-    //       containerRef.current.children,
-    //       {
-    //         scrollTrigger: {
-    //           trigger: containerRef.current,
-    //           start: "top center",
-    //           end: "bottom top",
-    //           scrub: true,
-    //           toggleActions: "play reverse play reverse",
-    //         },
-    //         opacity: 0,
-    //         y: -1,
-    //         // stagger: 0.5,
-    //       },
-    //       {
-    //         opacity: 1,
-    //         y: 0,
-    //       }
-    //     );
-    //   }
-    // });
+
+    useGSAP(() => {
+      if (containerRef.current) {
+        gsap.from(containerRef.current.children, {
+          autoAlpha: 0,
+          x: "20vw",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: containerRef?.current,
+            start: "top center",
+          },
+        });
+
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          horizontal: true,
+        });
+      }
+    });
     return (
       <div
         id="projects"
