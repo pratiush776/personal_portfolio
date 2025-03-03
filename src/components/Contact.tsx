@@ -50,7 +50,7 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
         id="contact"
         ref={ref}
         className={cn(
-          ` min-h-screen w-screen flex justify-center flex-col items-center pt-[25vh]`,
+          ` h-screen w-screen flex justify-center flex-col items-center pt-[25vh]`,
           className
         )}
       >

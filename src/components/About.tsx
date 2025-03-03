@@ -1,10 +1,5 @@
 import { cn } from "lib/utils";
 import React, { forwardRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface AboutProps {
   className?: string;

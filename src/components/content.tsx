@@ -102,8 +102,8 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
         className="h-[375vh] flex flex-col justify-center items-center"
       >
         <About ref={aboutRef} className="h-[70vh]" />
-        <Projects ref={projectsRef} className=" " />
-        <Skills ref={skillsRef} className=" " />
+        <Projects ref={projectsRef} />
+        <Skills ref={skillsRef} />
         <Contact ref={contactRef} />
       </div>
     </div>

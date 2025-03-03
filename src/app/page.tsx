@@ -18,7 +18,7 @@ export default function Home() {
       <main className="bg-[#E6E6E6] dark:bg-[#555454] scroll-smooth">
         <div className=" flex justify-center">
           <NavPrimary className="relative z-30" />
-          <Hero className="" />
+          <Hero />
         </div>
         <Content />
       </main>
