@@ -5,6 +5,12 @@ import downloadBtn from "/public/icons/download_icon.webp";
 import { cn } from "lib/utils";
 import { useTheme } from "next-themes";
 import { Switch } from "@/components/ui/switch";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface NavPrimaryProps {
   className?: string;
@@ -37,11 +43,22 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
           checked={theme === "dark"}
         />
       </div>
-      <Image
-        src={downloadBtn}
-        alt="CV"
-        className="h-7 w-7 opacity-60 dark:bg-[#ffff] rounded-full"
-      ></Image>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>
+            <a href="/CV.pdf" download>
+              <Image
+                src={downloadBtn}
+                alt="CV"
+                className="h-7 w-7 opacity-60 dark:bg-[#ffff] rounded-full"
+              ></Image>
+            </a>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Download CV</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   );
 };

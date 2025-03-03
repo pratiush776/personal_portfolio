@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "lib/utils";
+import Contact from "./Contact";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -21,6 +22,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
   const sectionContainerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -32,7 +34,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
       ScrollTrigger.create({
         trigger: navRef.current,
         start: "top top",
-        endTrigger: skillsRef.current,
+        endTrigger: contactRef.current,
         end: "bottom bottom",
 
         snap: {
@@ -97,11 +99,12 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
       />
       <div
         ref={sectionContainerRef}
-        className="h-[275vh] flex flex-col justify-center items-center"
+        className="h-[375vh] flex flex-col justify-center items-center"
       >
         <About ref={aboutRef} className="h-[70vh]" />
         <Projects ref={projectsRef} className=" " />
         <Skills ref={skillsRef} className=" " />
+        <Contact ref={contactRef} />
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ const mySkills = [
 const Skills = forwardRef<HTMLDivElement, SkillsProps>(({ className }, ref) => {
   return (
     <div
+      id="skills"
       ref={ref}
       className={cn(
         `h-screen w-screen flex justify-center items-center pt-[25vh]`,

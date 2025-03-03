@@ -54,13 +54,17 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
         onUpdate: () => {
           navItems.forEach((item, idx) => {
             if (idx === 0) {
-              item.classList.add("font-semibold");
-              item.classList.remove("font-light");
-              gsap.to(item, { scale: 1, duration: 0.5, overwrite: "auto" });
+              gsap.to(item, {
+                scale: 1.2,
+                duration: 0.5,
+                overwrite: "auto",
+              });
             } else {
-              item.classList.add("font-light");
-              item.classList.remove("font-semibold");
-              gsap.to(item, { scale: 0.9, duration: 0.5, overwrite: "auto" });
+              gsap.to(item, {
+                scale: 0.9,
+                duration: 0.5,
+                overwrite: "auto",
+              });
             }
           });
         },
@@ -75,13 +79,17 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
           onUpdate: () => {
             navItems.forEach((item, idx) => {
               if (idx === i) {
-                item.classList.add("font-semibold");
-                item.classList.remove("font-light");
-                gsap.to(item, { scale: 1, duration: 0.5, overwrite: "auto" });
+                gsap.to(item, {
+                  scale: 1.2,
+                  duration: 0.5,
+                  overwrite: "auto",
+                });
               } else {
-                item.classList.add("font-light");
-                item.classList.remove("font-semibold");
-                gsap.to(item, { scale: 0.9, duration: 0.5, overwrite: "auto" });
+                gsap.to(item, {
+                  scale: 0.9,
+                  duration: 0.5,
+                  overwrite: "auto",
+                });
               }
             });
           },
@@ -103,10 +111,18 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
           ref={navContainerRef}
           className="grid grid-cols-4 gap-5 place-items-center relative "
         >
-          <li className="font-semibold text-base">About</li>
-          <li className="font-light">Projects</li>
-          <li className="font-light">Skills</li>
-          <li className="font-light">Contact</li>
+          <a href="#about">
+            <li className=" font-light">About</li>
+          </a>
+          <a href="#projects">
+            <li className="font-light">Projects</li>
+          </a>
+          <a href="#skills">
+            <li className="font-light">Skills</li>
+          </a>
+          <a href="#contact">
+            <li className="font-light">Contact</li>
+          </a>
         </ul>
         {/* Indicator circle, absolutely positioned relative to the ul */}
         <div
