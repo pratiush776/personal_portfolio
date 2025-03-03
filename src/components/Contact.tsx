@@ -11,11 +11,11 @@ interface contactProps {
 const Contact = forwardRef<HTMLDivElement, contactProps>(
   ({ className }, ref) => {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
-    async function handleSubmit(event: any) {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
       event.preventDefault();
-      const formData = new FormData(event.target);
+      const formData = new FormData(event.currentTarget);
       setForm({ name: "", email: "", message: "" });
-
+      //below is a public key so it's fine
       formData.append("access_key", "03c13abd-95f8-4f30-ba8d-db8e8c0cb6e4");
 
       const object = Object.fromEntries(formData);
