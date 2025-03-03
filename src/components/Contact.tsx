@@ -21,7 +21,6 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
           x: "3rem",
           autoAlpha: 0,
           stagger: 0.3,
-          delay: 0.2,
           scrollTrigger: { trigger: formRef.current, start: "top center" },
         });
       }

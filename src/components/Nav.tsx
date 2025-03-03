@@ -112,13 +112,13 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
           className="grid grid-cols-4 gap-5 place-items-center relative "
         >
           <a href="#about">
-            <li className=" font-light">About</li>
+            <li className="scale-[1.2] font-light">About</li>
           </a>
           <a href="#projects">
             <li className="font-light">Projects</li>
           </a>
           <a href="#skills">
-            <li className="font-light">My Skills</li>
+            <li className="font-light">Skills</li>
           </a>
           <a href="#contact">
             <li className="font-light">Contact</li>
