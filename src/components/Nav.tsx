@@ -118,7 +118,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
             <li className="font-light">Projects</li>
           </a>
           <a href="#skills">
-            <li className="font-light">Skills</li>
+            <li className="font-light">My Skills</li>
           </a>
           <a href="#contact">
             <li className="font-light">Contact</li>
