@@ -1,15 +1,31 @@
 import { cn } from "lib/utils";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import ContactIcons from "./ContactIcons";
 import { Send } from "lucide-react";
 import Swal from "sweetalert2";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 interface contactProps {
   className?: string;
 }
 
 const Contact = forwardRef<HTMLDivElement, contactProps>(
   ({ className }, ref) => {
+    const formRef = useRef<HTMLDivElement>(null);
+    useGSAP(() => {
+      if (formRef.current) {
+        gsap.from(formRef.current.children, {
+          x: "3rem",
+          autoAlpha: 0,
+          stagger: 0.3,
+          delay: 0.2,
+          scrollTrigger: { trigger: formRef.current, start: "top center" },
+        });
+      }
+    });
     const [form, setForm] = useState({ name: "", email: "", message: "" });
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
       event.preventDefault();
@@ -54,7 +70,7 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
           className
         )}
       >
-        <div className="w-[15rem]">
+        <div className="w-[15rem]" ref={formRef}>
           <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
             <h3 className="text-center font-light text-sm">
               Send me a message
