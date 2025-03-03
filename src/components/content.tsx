@@ -99,7 +99,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
       />
       <div
         ref={sectionContainerRef}
-        className="h-[375vh] flex flex-col justify-center items-center"
+        className="h-[375vh] md:h-[385vh] flex flex-col justify-center items-center"
       >
         <About ref={aboutRef} className="h-[70vh]" />
         <Projects ref={projectsRef} />
