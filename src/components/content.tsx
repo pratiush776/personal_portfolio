@@ -38,7 +38,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
         end: "bottom bottom",
 
         snap: {
-          snapTo: 1 / (sections.length - 1),
+          snapTo: (1 / (sections.length - 1)) * 0.98,
           directional: false,
           duration: { min: 0.1, max: 0.75 }, // the snap animation should be at least 0.25 seconds, but no more than 0.75 seconds (determined by velocity)
           // delay: 0.125, // wait 0.125 seconds from the last scroll event before doing the snapping
@@ -99,7 +99,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
       />
       <div
         ref={sectionContainerRef}
-        className="h-[375vh] md:h-[385vh] flex flex-col justify-center items-center"
+        className="h-[375vh]  flex flex-col justify-center items-center"
       >
         <About ref={aboutRef} className="h-[70vh]" />
         <Projects ref={projectsRef} />
