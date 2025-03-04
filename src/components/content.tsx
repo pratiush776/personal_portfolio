@@ -38,7 +38,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
         end: "bottom bottom",
 
         snap: {
-          snapTo: (1 / (sections.length - 1)) * 0.98,
+          snapTo: (1 / (sections.length - 1)) * 0.99,
           directional: false,
           duration: { min: 0.1, max: 0.75 }, // the snap animation should be at least 0.25 seconds, but no more than 0.75 seconds (determined by velocity)
           // delay: 0.125, // wait 0.125 seconds from the last scroll event before doing the snapping

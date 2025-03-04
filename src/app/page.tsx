@@ -6,6 +6,7 @@ import Content from "@/components/content";
 import { ReactLenis } from "lenis/react";
 import Head from "next/head";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function Home() {
         />
         <meta name="twitter:image" content="/favicon.png" />
       </Head>
+      <Image alt="logo" src="/favicon.png" width={0} height={0}></Image>
       <ReactLenis root options={{ lerp: 0.75 }}>
         <main className="bg-[#E6E6E6] dark:bg-[#555454] scroll-smooth">
           <div className=" flex justify-center">
