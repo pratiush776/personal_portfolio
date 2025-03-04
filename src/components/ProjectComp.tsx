@@ -33,7 +33,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
           <Image
             src={sources.logo}
             fill
-            alt="logo"
+            alt="my_project_logo"
             className="object-contain rounded-full"
             sizes="(max-width: 640px) 100vw,
            (max-width: 1024px) 50vw,
