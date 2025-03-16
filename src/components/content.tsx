@@ -92,16 +92,17 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   });
 
   return (
-    <div ref={ref} className={cn(`relative`, className)}>
+    <div id="content" ref={ref} className={cn(`relative`, className)}>
       <Nav
         ref={navRef}
-        className="nav bg-[#e7b79a] dark:bg-[#272525] sticky top-0"
+        className="nav h-[25vh] bg-[#2F4156] dark:bg-[#272525] text-white sticky top-0"
       />
       <div
+        id="container"
         ref={sectionContainerRef}
-        className="h-[375vh]  flex flex-col justify-center items-center"
+        className="h-auto flex flex-col justify-center items-center box-border"
       >
-        <About ref={aboutRef} className="h-[70vh]" />
+        <About ref={aboutRef} className="h-[75vh]" />
         <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
         <Contact ref={contactRef} />

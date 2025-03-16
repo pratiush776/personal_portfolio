@@ -21,7 +21,11 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
           x: "3rem",
           autoAlpha: 0,
           stagger: 0.3,
-          scrollTrigger: { trigger: formRef.current, start: "top center" },
+          scrollTrigger: {
+            trigger: formRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
         });
       }
     });
@@ -62,15 +66,18 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
 
     return (
       <div
-        id="contact"
         ref={ref}
         className={cn(
-          ` h-screen w-screen flex justify-center flex-col items-center pt-[25vh]`,
+          ` h-screen w-screen flex justify-center flex-col items-center pt-[25vh] box-border`,
           className
         )}
       >
         <div className="w-[15rem]" ref={formRef}>
-          <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
+          <form
+            id="contact"
+            className="flex flex-col gap-5 "
+            onSubmit={handleSubmit}
+          >
             <h3 className="text-center font-light text-sm">
               Send me a message
             </h3>
@@ -116,7 +123,7 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
                 })
               }
             ></textarea>
-            <button className=" flex justify-center items-center p-[.5rem] rounded-lg text-[#475C6C] bg-[#F7EFD2] hover:bg-[#f8dd7a] cursor-pointer">
+            <button className=" flex justify-center items-center p-[.5rem] rounded-lg text-[#475C6C] bg-[#f0c4a9] hover:bg-[#efb48f] cursor-pointer">
               <Send />
             </button>
           </form>

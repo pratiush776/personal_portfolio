@@ -26,10 +26,10 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
   link,
 }) => {
   return (
-    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl bg-gray-500 z-0 flex flex-col justify-evenly text-sm text-[#ebeff1] md:snap-center md:snap-always">
+    <div className="relative p-[1rem] h-[60vh] aspect-[9/16] rounded-3xl drop-shadow-md shadow-black bg-[#eadad0] dark:bg-gray-600 text-[#2F4156] dark:text-[#F5EFEB] z-0 flex flex-col justify-evenly text-sm  md:snap-center md:snap-always">
       {/* -----------------logo---------------- */}
-      <div className="absolute w-[100%] h-[20%] top-[0] flex items-center justify-center gap-[1rem] ">
-        <div className="relative h-[6vh] bg-white w-fit rounded-full aspect-square">
+      <div className="absolute w-[100%] h-[20%] top-[0] flex items-center justify-center ">
+        <div className="relative h-[6vh] bg-white w-fit rounded-full aspect-square shadow-black drop-shadow-md">
           <Image
             src={sources.logo}
             fill
@@ -40,7 +40,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
            33vw"
           />
         </div>
-        <h1 className="text-center w-[40%] text-wrap text-xl text-[#093257ea] font-bold tracking-wide">
+        <h1 className="text-center w-[40%] text-wrap text-xl  font-bold tracking-wide">
           {title}
         </h1>
       </div>

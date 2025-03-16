@@ -38,7 +38,7 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
         id="projects"
         ref={ref}
         className={cn(
-          `h-screen w-screen justify-center items-center pt-[25vh]`,
+          `h-screen w-screen justify-center items-center pt-[25vh] box-border`,
           className
         )}
       >
@@ -46,6 +46,15 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
           ref={containerRef}
           className="h-[100%] p-10 flex gap-[6%]  w-screen overflow-auto justify-evenly items-center md:snap-x md:snap-mandatory"
         >
+          <ProjectComp
+            title="HomeDoc"
+            description="Home Doc is a health insight platform powered by AI (Llama3), designed to provide a Symptom Checker for quick, preliminary health assessments. Users can input their age, gender, and symptoms to receive personalized insights, with the reminder to consult a healthcare professional for definitive diagnoses.
+
+This project began as a concept app during a hackathon, where I collaborated with two teammates. Although we couldn't complete it in time, I later took the initiative to finish the prototype independently. My primary role was implementing the AI functionality, but I also developed the frontend and backend, transforming it into a comprehensive personal project."
+            stack={["Llama3", "Node", "React", "Express"]}
+            sources={{ logo: "/projects_assets/HomeDoc/logo.png" }}
+            link="https://homedoc-backend.onrender.com/"
+          />
           <ProjectComp
             title="Business Card"
             description="I created a digital business card for an actual local busniess. The was a digital business card which could be scanned as a QR Code then the customers would be directed to this webpage when all the details and links were available to them in a neat and friendly manner."
@@ -66,15 +75,6 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(
               ],
             }}
             link="https://roommatesapp-production.up.railway.app/"
-          />
-          <ProjectComp
-            title="HomeDoc"
-            description="Home Doc is a health insight platform powered by AI (Llama3), designed to provide a Symptom Checker for quick, preliminary health assessments. Users can input their age, gender, and symptoms to receive personalized insights, with the reminder to consult a healthcare professional for definitive diagnoses.
-
-This project began as a concept app during a hackathon, where I collaborated with two teammates. Although we couldn't complete it in time, I later took the initiative to finish the prototype independently. My primary role was implementing the AI functionality, but I also developed the frontend and backend, transforming it into a comprehensive personal project."
-            stack={["Llama3", "Node", "React", "Express"]}
-            sources={{ logo: "/projects_assets/HomeDoc/logo.png" }}
-            link="https://homedoc-backend.onrender.com/"
           />
         </div>
       </div>

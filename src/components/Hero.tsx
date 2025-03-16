@@ -4,6 +4,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "lib/utils";
+import HeroTitle from "./texts/heroTitle";
+import Pratiush from "./texts/pratiush";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -21,9 +23,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
     tl.fromTo(
       items,
-      { autoAlpha: 0, y: "2rem" },
+      { autoAlpha: 0, y: "1rem" },
       {
-        autoAlpha: (i) => (i !== 0 ? 0.6 : 1),
+        autoAlpha: 1,
         y: 0,
         duration: 1,
         stagger: 0.2,
@@ -52,19 +54,17 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         className
       )}
     >
-      <div className=" h-[80vh] w-screen flex flex-col justify-center items-center ">
-        <h1 className="text tracking-wider text-xl font-normal  opacity-100">
-          Pratiush Karki
-        </h1>
-        <h2 className="text tracking-wider opacity-60">Software Developer</h2>
+      <Pratiush className="text fill-[#567C8D] dark:fill-slate-200" />
+      <div className="h-[80vh] flex flex-col justify-center items-center ">
+        <HeroTitle className=" fill-[#567C8D] dark:fill-slate-200 " />
       </div>
-      <h3
+      <div
         ref={scrollRef}
-        className="text tracking-wider text-center opacity-60"
+        className="text text-center leading-tight opacity-60"
       >
-        Scroll
+        <p className=" text rotate-180 opacity-80">^</p>
         <p className=" text rotate-180 opacity-60">^</p>
-      </h3>
+      </div>
     </div>
   );
 };

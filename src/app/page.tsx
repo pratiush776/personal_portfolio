@@ -42,8 +42,8 @@ export default function Home() {
         <meta name="twitter:image" content="/favicon.png" />
       </Head>
       <Image alt="logo" src="/favicon.png" width={0} height={0}></Image>
-      <ReactLenis root options={{ lerp: 0.75 }}>
-        <main className="bg-[#E6E6E6] dark:bg-[#555454] scroll-smooth">
+      <ReactLenis root>
+        <main className="bg-[#F5EFEB] dark:bg-[#2F4156] ">
           <div className=" flex justify-center">
             <NavPrimary className="relative z-30" />
             <Hero />

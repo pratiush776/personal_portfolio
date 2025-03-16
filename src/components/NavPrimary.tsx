@@ -30,27 +30,41 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        `h-[12%] w-[90vw] p-10 m-auto flex justify-between align-middle fixed top-0
+        `h-auto w-[90vw] p-10 m-auto flex justify-between align-middle fixed top-0 pointer-events-none
           }` + className
       )}
     >
-      <div className="h-auto w-auto bg-transparent cursor-pointer">
-        <Switch
-          className="bg-black"
-          onCheckedChange={() => {
-            setTheme(theme === "light" ? "dark" : "light");
-          }}
-          checked={theme === "dark"}
-        />
-      </div>
       <TooltipProvider>
         <Tooltip>
-          <TooltipTrigger>
-            <a href="/CV.pdf" download>
+          <TooltipTrigger asChild className="pointer-events-auto ">
+            <div className="flex justify-between items-center bg-transparent cursor-pointer">
+              <Switch
+                className="bg-black pointer-events-auto drop-shadow-md"
+                onCheckedChange={() => {
+                  setTheme(theme === "light" ? "dark" : "light");
+                }}
+                checked={theme === "dark"}
+              />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Toogle Theme</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger className="pointer-events-auto ">
+            <a
+              href="/CV.pdf"
+              download
+              className="drop-shadow-md overflow-visible"
+            >
               <Image
                 src={downloadBtn}
                 alt="CV"
-                className="h-7 w-7 opacity-60 dark:bg-[#ffff] rounded-full"
+                className="h-7 w-7 opacity-60 bg-[#F5EFEB] dark:bg-[#F5EFEB] rounded-full "
               ></Image>
             </a>
           </TooltipTrigger>
