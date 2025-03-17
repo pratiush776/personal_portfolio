@@ -123,7 +123,7 @@ const Contact = forwardRef<HTMLDivElement, contactProps>(
                 })
               }
             ></textarea>
-            <button className=" flex justify-center items-center p-[.5rem] rounded-lg text-[#475C6C] bg-[#f0c4a9] hover:bg-[#efb48f] cursor-pointer">
+            <button className=" flex justify-center items-center p-[.5rem] rounded-lg bg-[#2F4156] hover:bg-[#567C8D] dark:bg-[#272525] text-white  transition-colors cursor-pointer">
               <Send />
             </button>
           </form>
