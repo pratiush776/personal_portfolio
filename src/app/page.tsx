@@ -48,7 +48,7 @@ export default function Home() {
             <NavPrimary className="relative z-30" />
             <Hero />
           </div>
-          <Content />
+          <Content className="contain-paint" />
         </main>
       </ReactLenis>
     </>

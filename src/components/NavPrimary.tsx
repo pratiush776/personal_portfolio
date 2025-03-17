@@ -62,6 +62,7 @@ const NavPrimary: React.FC<NavPrimaryProps> = ({ className }) => {
               className="drop-shadow-md overflow-visible"
             >
               <Image
+                priority
                 src={downloadBtn}
                 alt="CV"
                 className="h-7 w-7 opacity-60 bg-[#F5EFEB] dark:bg-[#F5EFEB] rounded-full "

@@ -42,7 +42,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
           directional: false,
           duration: { min: 0.1, max: 0.75 }, // the snap animation should be at least 0.25 seconds, but no more than 0.75 seconds (determined by velocity)
           // delay: 0.125, // wait 0.125 seconds from the last scroll event before doing the snapping
-          ease: "power4.in", // the ease of the snap animation ("power3" by default)
+          ease: "power4.inOut", // the ease of the snap animation ("power3" by default)
         },
       });
       const navItems = gsap.utils.toArray(
@@ -92,7 +92,7 @@ const Content = forwardRef<HTMLDivElement, HeroProps>(({ className }, ref) => {
   });
 
   return (
-    <div id="content" ref={ref} className={cn(`relative`, className)}>
+    <div id="content" ref={ref} className={cn(`relative w-screen`, className)}>
       <Nav
         ref={navRef}
         className="nav h-[25vh] bg-[#2F4156] dark:bg-[#272525] text-white sticky top-0"

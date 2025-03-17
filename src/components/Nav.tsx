@@ -112,7 +112,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(({ className }, ref) => {
     <div
       ref={ref}
       className={cn(
-        "z-10 w-screen flex justify-center items-end p-[1.5rem] box-border",
+        "z-10 w-screen  flex justify-center items-end p-[1.5rem] box-border",
         className
       )}
     >
